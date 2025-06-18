@@ -1,0 +1,35 @@
+// import { DB_NAME } from "./constants";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import connectDB from "./db/index.js";
+
+dotenv.config({
+    path:'./env'
+});
+
+// approach-2 connect the db in db/index.js
+connectDB();
+
+//approach-1 where we connect the db in index.js itself using iife(immediately invoked function expression) 
+
+/*import express from "express"
+const app = express();
+( async () => {
+    try {
+        await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`);
+        app.on("error",(error) => {
+            console.log("Errr: ",error);
+            throw error
+        })
+
+        app.listen(process.env.PORT,() => {
+            console.log("App is listening on port: ",process.env.PORT);
+            
+        })
+    } catch (error) {
+        console.error("ERRR: ",error);
+        throw error;
+        
+    }
+})()
+*/
