@@ -8,7 +8,33 @@ dotenv.config({
 });
 
 // approach-2 connect the db in db/index.js
-connectDB();
+connectDB()
+.then(() => {
+    app.listen(process.env.PORT || 8000,() => {
+        console.log(`Server is running at port : ${process.env.PORT || 8000}`);
+        
+    })
+})
+.catch((err) => {
+    console.error("MongoDB connection failed! : ",err);
+    
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //approach-1 where we connect the db in index.js itself using iife(immediately invoked function expression) 
 
