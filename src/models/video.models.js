@@ -36,5 +36,5 @@
         },
     },{timestamps:true})
 
-    videoSchema.plugin(mongooseAggregatePaginate)
+    videoSchema.plugin(mongooseAggregatePaginate) //performing aggregate pipeplines
     export const Video = mongoose.model("Video",videoSchema)

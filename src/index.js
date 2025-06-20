@@ -2,9 +2,11 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import connectDB from "./db/index.js";
+import { app } from "./app.js";
 
+// always ensure runing node from root folder and env file is in root folder, because in es modules the paths are relative i.e if the bash(root-folder)/.env aayega
 dotenv.config({
-    path:'./env'
+    path:'./.env'
 });
 
 // approach-2 connect the db in db/index.js

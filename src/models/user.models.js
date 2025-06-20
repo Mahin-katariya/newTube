@@ -11,7 +11,7 @@ const userSchema = new Schema({
         trim:true,
         index:true //to enable searching in a more optimised way
     },
-    username: {
+    email: {
         type:String,
         required:true,
         unique:true,
@@ -46,7 +46,7 @@ const userSchema = new Schema({
 userSchema.pre("save", async function(next) { //pre-hook
     // if the password is field is modified only then we should encrypt and save the encryption rather than repeating the same process when other fields are also modified
     if(this.isModified("password")){ 
-        this.password = bcrypt.hash(this.password,12)
+        this.password = await bcrypt.hash(this.password,12)
             next()
     }   
 })
